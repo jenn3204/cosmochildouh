@@ -30,7 +30,7 @@ h4 {
 }
 
 /** landing page + log ind**/
-#forside_main {
+#landing_main {
   background-image: url(img/startsidebg.png);
   background-size: cover;
   height: 100vh;
@@ -85,4 +85,15 @@ button {
 
 #advarsel {
   margin-bottom: 15px;
+}
+
+/** forside **/
+
+#forside_main {
+  background-image: url(img/baggrund.png);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
 }
