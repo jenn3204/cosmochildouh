@@ -16,10 +16,16 @@ if (pageState == "loading") {
 }
 
 function start() {
-    showLoader(); 
+
+    if (localStorage.logind == "yes") {
+        location.href = "/forside.html"
+    } else {
+        showLoader(); 
     loadBrugere(); 
 
     document.querySelector("#logind_knap").addEventListener("click", tjekBrugere);
+
+    }
 }
 
 async function loadBrugere() {
@@ -39,8 +45,11 @@ function tjekBrugere() {
     brugere.forEach(bruger => {
         if (bruger.brugernavn == brugerValue && bruger.kodeord == kodeValue) {
             console.log("du er logget ind"); 
+            location.href = "/forside.html"; 
+            localStorage.setItem("logind", "yes");
         } else {
             console.log("du er ikke logget ind"); 
+    
         }
     })
 }
