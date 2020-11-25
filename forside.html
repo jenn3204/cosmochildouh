@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        window.addEventListener("DOMContentLoaded", forsideStart); 
+
+        function forsideStart() {
+            console.log(sessionStorage); 
+            let data = sessionStorage.getItem("logind")
+            console.log(data); 
+            if (sessionStorage.logind == "yes") {
+    console.log("yesyes")
+    } else {
+        location.href = "/index.html"
+    }
+        }
+    </script>
+</body>
+</html>

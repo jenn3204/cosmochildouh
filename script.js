@@ -17,15 +17,15 @@ if (pageState == "loading") {
 
 function start() {
 
-    if (localStorage.logind == "yes") {
-        location.href = "/forside.html"
-    } else {
+    // if (localStorage.logind == "yes") {
+    //     location.href = "/forside.html"
+    // }
         showLoader(); 
     loadBrugere(); 
 
     document.querySelector("#logind_knap").addEventListener("click", tjekBrugere);
 
-    }
+    
 }
 
 async function loadBrugere() {
@@ -34,7 +34,6 @@ async function loadBrugere() {
 
     brugere = jsonData; 
   console.log(brugere); 
-  tjekBrugere(); 
 }
 
 function tjekBrugere() {
@@ -46,10 +45,28 @@ function tjekBrugere() {
         if (bruger.brugernavn == brugerValue && bruger.kodeord == kodeValue) {
             console.log("du er logget ind"); 
             location.href = "/forside.html"; 
-            localStorage.setItem("logind", "yes");
+            sessionStorage.setItem("logind", "yes");
         } else {
             console.log("du er ikke logget ind"); 
+
+            setTimeout(() => {
+                document.querySelector("#advarsel").classList.remove("hide"); 
+                document.querySelector("#brugernavn_input").value = ""; 
+                document.querySelector("#kodeord_input").value = ""; 
+                document.querySelector("#brugernavn_input").classList.add("not_valid"); 
+                document.querySelector("#kodeord_input").classList.add("not_valid");
     
+                document.querySelector("#brugernavn_input").addEventListener("keyup", () => {
+                    document.querySelector("#brugernavn_input").classList.remove("not_valid"); 
+                    document.querySelector("#advarsel").classList.add("hide"); 
+                })
+    
+                document.querySelector("#kodeord_input").addEventListener("keyup", () => {
+                    document.querySelector("#kodeord_input").classList.remove("not_valid"); 
+                })
+                
+            }, 100);
+
         }
     })
 }

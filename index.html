@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmo Child x OUH</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <meta name="description" content="Log ind på Cosmo Childs webside hvis du skal indlægges med dit barn på OUH for at få adgang til unikke værktøjer der kan hjælpe dit barn igennem processen"/>
 </head>
 <body>
@@ -17,8 +19,15 @@
                 <label for="kodeord">Kodeord</label>
                 <input id="kodeord_input" type="text" name="kodeord">
 
+                <div id="advarsel" class="hide">
+                    <h4>Brugernavn eller kodeord er ikke korrekt - Prøv igen!</h4>
+                </div>
+
                 <button id="logind_knap" type="button">Log ind</button>
             </form>
+           
+            <div id="ouh_logo"></div>
+            <div id="cc_logo"></div>
         </section>
 
     </main>

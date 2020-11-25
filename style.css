@@ -1,16 +1,88 @@
+/** generelle **/
+
 * {
   margin: 0;
   padding: 0;
 }
 
-.red {
-  background-color: red;
-  height: 100vh;
-  width: 100vw;
+:root {
+  --overskrift: "Coming Soon", cursive;
+  --brødtekst: "Roboto", sans-serif;
+  --lysblaa: #8097ab;
+  --hvid: #fafbec;
 }
 
-.green {
-  background-color: green;
+body {
+  overflow: hidden;
+}
+
+h4 {
+  font-family: var(--brødtekst);
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+.not_valid {
+  border-color: red;
+}
+
+/** landing page + log ind**/
+#forside_main {
+  background-image: url(img/startsidebg.png);
+  background-size: cover;
   height: 100vh;
   width: 100vw;
+  /* background-position: 20% 0; */
+  position: absolute;
+  bottom: 0;
+}
+
+#logind_section {
+  background-color: var(--hvid);
+  width: 280px;
+  padding: 40px 0;
+  margin: 150px auto;
+  border-radius: 5px;
+  border: none;
+}
+
+#logind_form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: 0 auto;
+}
+
+label {
+  font-family: var(--overskrift);
+}
+
+input {
+  border: 2px solid var(--lysblaa);
+  border-radius: 5px;
+  height: 25px;
+  margin-bottom: 10px;
+  font-family: var(--brødtekst);
+}
+
+input:focus {
+  border-color: green;
+}
+
+button {
+  width: 100px;
+  margin: 0 auto;
+  height: 25px;
+  border: none;
+  font-family: var(--overskrift);
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#advarsel {
+  margin-bottom: 15px;
 }
