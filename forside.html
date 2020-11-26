@@ -7,21 +7,25 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <main id="forside_main"></main>
-    
-    <script>
-        window.addEventListener("DOMContentLoaded", forsideStart); 
+    <main id="forside_main">
 
-        function forsideStart() {
-            console.log(sessionStorage); 
-            let data = sessionStorage.getItem("logind")
-            console.log(data); 
-            if (sessionStorage.logind == "yes") {
-    console.log("yesyes")
-    } else {
-        location.href = "/index.html"
-    }
-        }
-    </script>
+        <section id="talebobbel">
+            <div id="tb_indhold">
+                <h2>Velkommen til Cosmo Child</h2>
+                <p id="tb_tekst"></p>
+                <button id="videre_knap">Videre</button>
+            </div>
+            </section>
+
+            <section id="valg_section" class="hide">
+                <button class="valg_knap">Inden operation</button>
+                <button class="valg_knap">Under Operation</button>
+                <button class="valg_knap">Efter operation</button>
+                <button class="valg_knap">Hjemme</button>
+                <button class="valg_knap">Alle værktøjer</button>
+            </section>
+    </main>
+    
+    <script src="script.js"></script>
 </body>
 </html>

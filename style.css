@@ -10,10 +10,17 @@
   --brødtekst: "Roboto", sans-serif;
   --lysblaa: #8097ab;
   --hvid: #fafbec;
+  --coral: #f68989;
 }
 
 body {
   overflow: hidden;
+}
+
+h2 {
+  font-family: var(--overskrift);
+  font-size: 18px;
+  font-weight: bold;
 }
 
 h4 {
@@ -21,8 +28,13 @@ h4 {
   font-weight: bold;
 }
 
+p {
+  font-family: var(--brødtekst);
+}
+
 .hide {
   display: none;
+  visibility: hidden;
 }
 
 .not_valid {
@@ -77,10 +89,19 @@ button {
   margin: 0 auto;
   height: 25px;
   border: none;
-  font-family: var(--overskrift);
+  font-family: var(--brødtekst);
   font-weight: bold;
-  border-radius: 5px;
+  text-transform: uppercase;
+  border-radius: 30px;
   cursor: pointer;
+  background-color: var(--coral);
+  color: var(--hvid);
+}
+
+button:hover {
+  color: var(--lysblaa);
+  background-color: var(--hvid);
+  transform: scale(1.05);
 }
 
 #advarsel {
@@ -96,4 +117,33 @@ button {
   width: 100vw;
   position: absolute;
   bottom: 0;
+  overflow: scroll;
+}
+
+#talebobbel {
+  background-image: url(img/talebobbel.png);
+  background-size: cover;
+  width: 450px;
+  height: 400px;
+  margin: 20vh auto;
+  position: relative;
+}
+
+#tb_indhold {
+  width: 300px;
+  position: absolute;
+  top: 70px;
+  left: 100px;
+}
+
+#valg_section {
+  display: flex;
+  flex-direction: column;
+  margin: 20vh auto;
+}
+
+#valg_section button {
+  width: 200px;
+  height: 50px;
+  margin: 10px auto;
 }

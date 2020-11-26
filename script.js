@@ -5,6 +5,9 @@ window.addEventListener("DOMContentLoaded", start);
 
 let brugere = []; 
 
+let brugereData = "brugere.json"; 
+let txtData = "txt.json"; 
+
 function showLoader() {
 
     let pageState = document.readyState; 
@@ -17,26 +20,36 @@ if (pageState == "loading") {
 
 function start() {
 
-    // if (localStorage.logind == "yes") {
-    //     location.href = "/forside.html"
-    // }
         showLoader(); 
-    loadBrugere(); 
 
-    document.querySelector("#logind_knap").addEventListener("click", tjekBrugere);
+        if (document.querySelector("#logind_knap")) {
+            document.querySelector("#logind_knap").addEventListener("click", () => {
+                hentData(brugereData, tjekBrugere); 
+            });
+        }
 
+        
+
+        if (document.querySelector("#tb_tekst")) {
+            forsideStart(); 
+            hentData(txtData, visTbTxt); 
+        }
     
 }
 
-async function loadBrugere() {
-    const response = await fetch("brugere.json");
+async function hentData(json, callback) {
+    const response = await fetch(json);
     let jsonData  = await response.json();
 
-    brugere = jsonData; 
-  console.log(brugere); 
+    callback(jsonData); 
+
 }
 
-function tjekBrugere() {
+function tjekBrugere(jsonData) {
+
+    brugere = jsonData; 
+    console.log(brugere); 
+
     let brugerValue = document.querySelector("#brugernavn_input").value; 
     let kodeValue = document.querySelector("#kodeord_input").value;
     console.log(brugerValue, kodeValue); 
@@ -69,4 +82,30 @@ function tjekBrugere() {
 
         }
     })
+}
+
+
+
+function forsideStart() {
+    console.log(sessionStorage); 
+    let data = sessionStorage.getItem("logind")
+    console.log(data); 
+    if (sessionStorage.logind == "yes") {
+console.log("yesyes")
+} else {
+location.href = "/index.html"
+}
+}
+
+function visTbTxt(jsonData) {
+    document.querySelector("#tb_tekst").textContent = jsonData[0].velkommen; 
+    console.log(jsonData); 
+
+    document.querySelector("#videre_knap").addEventListener("click", visValg); 
+
+}
+
+function visValg() {
+    document.querySelector("#talebobbel").classList.add("hide");
+    document.querySelector("#valg_section").classList.remove("hide"); 
 }
