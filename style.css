@@ -221,6 +221,24 @@ button:hover {
   margin: 10px auto;
 }
 
+#august {
+  animation: august_ind;
+  height: 400px;
+  position: absolute;
+  bottom: 0;
+  left: 10vw;
+}
+
+@keyframes august_ind {
+  0% {
+    left: -200px;
+  }
+
+  100% {
+    left: 10vw;
+  }
+}
+
 /** animationer **/
 
 .zoomind {
