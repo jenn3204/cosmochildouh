@@ -9,8 +9,10 @@
   --overskrift: "Coming Soon", cursive;
   --brødtekst: "Roboto", sans-serif;
   --lysblaa: #8097ab;
+  --morkblaa: #61808f;
   --hvid: #fafbec;
   --coral: #f68989;
+  --lyserod: #f2d6d3;
 }
 
 body {
@@ -19,7 +21,7 @@ body {
 
 h2 {
   font-family: var(--overskrift);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -41,13 +43,50 @@ p {
   border-color: red;
 }
 
+.flex_row {
+  display: flex;
+  flex-direction: row;
+}
+
+/** header **/
+
+header {
+  height: 50px;
+  width: 100vw;
+  position: absolute;
+  background-color: none;
+  z-index: 100000;
+}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#hjem_knap {
+  background-image: url(img/ikoner/hjem.png);
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  margin: 1vw;
+  cursor: pointer;
+}
+
+#logud_knap {
+  background-image: url(img/ikoner/logud.png);
+  width: 35px;
+  height: 40px;
+  background-size: cover;
+  margin: 1vw;
+  cursor: pointer;
+}
+
 /** landing page + log ind**/
 #landing_main {
   background-image: url(img/startsidebg.png);
   background-size: cover;
   height: 100vh;
   width: 100vw;
-  /* background-position: 20% 0; */
   position: absolute;
   bottom: 0;
 }
@@ -55,8 +94,8 @@ p {
 #logind_section {
   background-color: var(--hvid);
   width: 280px;
-  padding: 40px 0;
-  margin: 150px auto;
+  padding: 40px 0 10px;
+  margin: 100px auto;
   border-radius: 5px;
   border: none;
 }
@@ -108,6 +147,34 @@ button:hover {
   margin-bottom: 15px;
 }
 
+#logo_container {
+  width: 230px;
+  margin: 10px auto 0;
+}
+
+#ouh_logo {
+  background-image: url(img/ikoner/ouh_logo.png);
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+}
+
+#cc_logo {
+  background-image: url(img/ikoner/cc_logo.png);
+  background-size: cover;
+  height: 100px;
+  width: 130px;
+}
+
+#logud_section {
+  width: 400px;
+  padding: 40px 0;
+  margin: 150px auto;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+}
+
 /** forside **/
 
 #forside_main {
@@ -125,18 +192,24 @@ button:hover {
   background-size: cover;
   width: 450px;
   height: 400px;
-  margin: 20vh auto;
+  margin: 20vh auto 0;
   position: relative;
 }
 
 #tb_indhold {
-  width: 300px;
+  width: 330px;
   position: absolute;
   top: 70px;
-  left: 100px;
+  left: 80px;
+  display: flex;
+  flex-direction: column;
 }
 
-#valg_section {
+#tb_indhold h2 {
+  text-align: center;
+}
+
+.valg_section {
   display: flex;
   flex-direction: column;
   margin: 20vh auto;
@@ -146,4 +219,80 @@ button:hover {
   width: 200px;
   height: 50px;
   margin: 10px auto;
+}
+
+/** animationer **/
+
+.zoomind {
+  animation-name: zoomin;
+  animation-duration: 1.2s;
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zoomud {
+  animation-name: zoomout;
+  animation-duration: 1s;
+}
+
+@keyframes zoomout {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.fadein_slow {
+  animation-name: fadein_slow;
+  animation-duration: 1.6s;
+}
+
+@keyframes fadein_slow {
+  0% {
+    opacity: 0%;
+  }
+  70% {
+    opacity: 0%;
+  }
+  80% {
+    opacity: 30%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.fadein {
+  animation-name: fadein;
+  animation-duration: 0.5s;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  }
+  70% {
+    opacity: 0%;
+  }
+  80% {
+    opacity: 30%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }

@@ -12,7 +12,7 @@
 <body>
     <main id="landing_main">
         <section id="logind_section">
-            <form id="logind_form">
+            <form id="logind_form" autocomplete="off">
                 <label for="brugernavn">Brugernavn</label>
                 <input id="brugernavn_input" type="text" name="brugernavn">
 
@@ -25,9 +25,20 @@
 
                 <button id="logind_knap" type="button">Log ind</button>
             </form>
-           
+           <div id="logo_container" class="flex_row">
             <div id="ouh_logo"></div>
             <div id="cc_logo"></div>
+           </div>
+            
+        </section>
+
+        <section id="logud_section" class="hide">
+            <h2>Tak fordi du brugte Cosmo Child! <br> Hvis du vil fortsætte med at bruge vores værktøjer kan du hente vores app i app store</h2>
+            <div class="flex_row">
+                <button id="logindigen_knap">Log ind igen</button>
+                <button id="appstore_knap">App Store</button>
+            </div>
+            
         </section>
 
     </main>
