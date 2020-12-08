@@ -6,8 +6,15 @@
     <title>Cosmo Child x OUH</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body id="indhold_body">
+    <header>
+        <nav>
+            <div id="hjem_knap"></div>
+            <div id="logud_knap"></div>
+        </nav>
+    </header>
     <main id="indhold_main">
+        <section id="indhold_container">
             <article id="article1">
                 <h2></h2>
                 <p></p>
@@ -24,23 +31,34 @@
                     <img></img>
                     <h2></h2>
                 </div>
-                <div id="indhold_box1" class="indhold_box">
-                    <h3 id="titel1"></h3>
-                    <p id="kunstner1"></p>
+                <template>
+                <div class="indhold_box">
+                    <h3 id="titel"></h3>
+                    <p id="kunstner"></p>
                     <div class="play_knap"></div>
                 </div>
-                <div id="indhold_box2" class="indhold_box">
-                    <h3 id="titel2"></h3>
-                    <p id="kunstner2"></p>
-                    <div class="play_knap"></div>
-                </div>
-                <div id="indhold_box3" class="indhold_box">
-                    <h3 id="titel3"></h3>
-                    <p id="kunstner3"></p>
-                    <div class="play_knap"></div>
-                </div>
+            </template>
+            <div id="liste"></div>
             </article>
-        <section id="indhold_section"></section>
+        </section>
+        
+            <section id="pop_up" class="hide">
+                <h1 id="luk_popup">X</h1>
+                <img>
+                <h3></h3>
+                <p></p>
+                <audio controls></audio>
+            </section>
+
+            <section id="alle" class="hide">
+                <template>
+                    <div class="kategori">
+                        <img></img>
+                        <h3></h3>
+                    </div>
+                </template>
+                <article id="liste_alle"></article>
+            </section>
     </main>
     <script src="script.js"></script>
 </body>

@@ -6,15 +6,20 @@
         "situation2": "under",
         "beskrivelse": "Flere studier peger på at musik kan øge udskillelsen af endorfiner i hjernen og dermed fremkalde glæde, afslapning eller endda reducere stress og angst. Musik aktiverer begge sider af hjernen og skaber nye forbindelser mellem dem, det gælder både for voksne og børn. Som oftest hører vi musik for at stimulere følelserne i forskellige sammenhænge. Musikken er specielt udviklet til at stimulere barnet til at finde indre ro, glæde og mærke en afslapning i kroppen.",
         "ikon": "img/ikoner/musik.png", 
-        "titel1": "All Loving Angel",
-        "kunstner1": "Christopher Loyd", 
-        "url1": "",
-        "titel2": "Across the sky",
-        "kunstner2": "Christopher Loyd",
-        "url2": "",
-        "titel3": "Divine Love",
-        "kunstner3": "Christopher Loyd",
-        "url3": ""
+        "filer": [{
+            "titel": "All Loving Angel",
+        "kunstner": "Christopher Loyd", 
+        "url": ""
+        }, {
+            "titel": "Across the sky",
+        "kunstner": "Christopher Loyd",
+        "url": ""
+
+        }, {
+            "titel": "Divine Love",
+        "kunstner": "Christopher Loyd",
+        "url": ""
+        }]
     }, 
     {
         "kategori": "meditation",
@@ -23,15 +28,19 @@
         "situation2": "hjemme",
         "beskrivelse": "Meditation er et veldokumenteret redskab til at forøge psykisk og fysisk velvære. Det er for eksempel påvist, at meditation har en afstressende effekt, kan virke angstdæmmende, øge koncentrationsevnen og produktionen af lykkehormonet serotonin, der skaber følelsen af velvære og lykke. Gennem meditationens stilhed lærer barnet at lytte til den dybere intuitive del af sin bevidsthed, som normalt overskygges af den indre mentale støj. Barnet kommer i tættere kontakt med sine egentlige behov og lærer derved sig selv bedre at kende. Det gør barnet bedre i stand til at skille væsentligt fra uvæsentligt og til at navigere mere trygt gennem det hav af informationer og valgmuligheder, som barnet dagligt præsenteres for. Målet er at integrere krop og sjæl, stilhed og aktivitet, det indre og det ydre og dermed skabe ro og balance.",
         "ikon": "img/ikoner/meditation.png", 
-        "titel1": "Introduktion - forælder",
-        "kunstner1": "Jesper Westmark", 
-        "url1": "",
-        "titel2": "Rejsen gennem kroppen",
-        "kunstner2": "Mette Junker",
-        "url2": "",
-        "titel3": "Den violette flamme",
-        "kunstner3": "Viktoria Junker",
-        "url3": ""
+        "filer": [{
+        "titel": "Introduktion til meditation - forælder",
+        "kunstner": "Jesper Westmark", 
+        "url": ""
+        }, {
+            "titel": "Rejsen gennem kroppen",
+            "kunstner": "Mette Junker",
+            "url": ""
+        }, {
+            "titel": "Den violette flamme",
+            "kunstner": "Viktoria Junker",
+            "url": ""
+        }]  
     }, 
     {
         "kategori": "akupressur",
@@ -40,14 +49,19 @@
         "situation2": "efter",
         "beskrivelse": "Akupressur har fælles oprindelse med akupunktur, da begge behandlingsformer er baseret på kroppens meridianpunkter og stammer fra Østen. Men i modsætning til akupunktur, så anvendes der ingen nåle, men derimod et let tryk med fingrene på bestemte punkter i kroppens meridianer, som har til formål at forebygge eller lindre forskellige symptomer af både fysisk og psykisk karakter. Punkterne kan masseres så tit du og dit barn har lyst. Du kan vælge at massere punkterne på dit barn, eller lade barnet gøre det selv, begge dele er fint.",
         "ikon": "img/ikoner/akupressur.png", 
-        "titel1": "Introduktion - forælder",
-        "kunstner1": "Katrine Birk", 
-        "url1": "",
-        "titel2": "Solar Plexus",
-        "kunstner2": "Katrine Birk",
-        "url2": "",
-        "titel3": "Ørenus",
-        "kunstner3": "Katrine Birk",
-        "url3": ""
+        "filer": [{
+            "titel": "Introduktion til akupressur - forælder",
+            "kunstner": "Katrine Birk", 
+            "url": ""
+        }, {
+            "titel": "Solar Plexus",
+            "kunstner": "Katrine Birk",
+            "url": ""
+        }, {
+            "titel": "Ørenus",
+            "kunstner": "Katrine Birk",
+            "url": ""
+        }] 
+        
     }
 ]

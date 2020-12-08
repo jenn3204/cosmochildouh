@@ -12,15 +12,17 @@ let txtData = "txt.json";
 let indholdData = "indhold.json"; 
 
 const urlParams = new URLSearchParams(window.location.search);
-const situation = urlParams.get("id");
+const param = urlParams.get("id");
 
 function showLoader() {
 
     let pageState = document.readyState; 
 if (pageState == "loading") {
     console.log("HEJ"); 
+    document.querySelector("body").classList.add("hide"); 
 } else {
     console.log("NEJ"); 
+    document.querySelector("body").classList.remove("hide"); 
 }
 }
 
@@ -58,9 +60,12 @@ function start() {
             })
         }
 
-        if (sessionStorage.harsetintro == "yes") {
-            visValg(); 
+        if (document.querySelector("#forside_main")) {
+            if (sessionStorage.harsetintro == "yes") {
+                visValg(); 
+            }
         }
+        
 
         if (document.querySelector("#tb_tekst")) {
             forsideStart(); 
@@ -213,15 +218,28 @@ function visIndhold(value) {
 }
 
 function startIndhold() {
-    hentData(indholdData, indholdHentet);  
+        hentData(indholdData, indholdHentet);  
 }
 
 function indholdHentet(data) {
     indhold = data; 
+    const skabelon = document.querySelector("#article3 template").content;
+    const liste = document.querySelector("#liste"); 
+
+    if (param == "alle") {
+        visAlle();
+    }
 
     indhold.forEach(ind => {
-        if (ind.situation == situation || ind.situation2 == situation) {
+        if (ind.situation == param || ind.situation2 == param || ind.kategori == param) {
             console.log(ind); 
+
+            if (ind.kategori == param) {
+                document.querySelector("#article1").classList.add("hide"); 
+            }
+
+            document.querySelector("#indhold_body").classList.add(`${ind.kategori}` + "_body"); 
+            document.querySelector("#indhold_main").classList.add(`${ind.kategori}` + "_main"); 
 
             document.querySelector("#article2 .overskrift h2").textContent = ind.kategori[0].toUpperCase() + ind.kategori.slice(1); 
             document.querySelector("#article2 .overskrift img").src = ind.ikon; 
@@ -230,20 +248,28 @@ function indholdHentet(data) {
             document.querySelector("#article3 .overskrift h2").textContent = ind.overskrift; 
             document.querySelector("#article3 .overskrift img").src = ind.ikon; 
 
-            document.querySelector("#titel1").textContent = ind.titel1; 
-            document.querySelector("#kunstner1").textContent = ind.kunstner1; 
+            ind.filer.forEach(fil => {
+                const klon = skabelon.cloneNode(true); 
 
-            document.querySelector("#titel2").textContent = ind.titel2; 
-            document.querySelector("#kunstner2").textContent = ind.kunstner2; 
+                klon.querySelector("#titel").textContent = fil.titel; 
+                klon.querySelector("#kunstner").textContent = fil.kunstner; 
+                klon.querySelector(".play_knap").setAttribute("id", `${fil.titel}`); 
 
-            document.querySelector("#titel3").textContent = ind.titel3; 
-            document.querySelector("#kunstner3").textContent = ind.kunstner3; 
+                liste.appendChild(klon); 
+            })
 
+            document.querySelectorAll(".play_knap").forEach(knap => {
+                knap.addEventListener("click", (e) => {
+                    console.log(knap.id);
+                    visPopup(knap.id, ind.ikon);  
+                })
+            })
             
         }
     })
 
     hentInfo();
+
 }
 
 function hentInfo() {
@@ -254,9 +280,60 @@ function visInfo(data) {
     txt = data; 
 
     txt.forEach(t => {
-        if (t.situation == situation) {
+        if (t.situation == param) {
             document.querySelector("#article1 h2").textContent = t.overskrift; 
             document.querySelector("#article1 p").textContent = t.brødtekst; 
         }
+    })
+}
+
+function visPopup(knap, ikon) {
+    console.log("er den her?" + indhold); 
+    document.querySelector("#pop_up").classList.remove("hide"); 
+
+    indhold.forEach(ind => {
+        console.log(ind.filer); 
+
+        ind.filer.forEach(fil => {
+            if (fil.titel == knap) {
+                console.log(fil.titel); 
+
+                document.querySelector("#pop_up img").src = ikon; 
+                document.querySelector("#pop_up h3").textContent = fil.titel; 
+                document.querySelector("#pop_up p").textContent = fil.kunstner; 
+
+            }
+        })
+    })
+
+    document.querySelector("#luk_popup").addEventListener("click", () => {
+        document.querySelector("#pop_up").classList.add("hide"); 
+    })
+}
+
+function visAlle() {
+    document.querySelector("#indhold_container").classList.add("hide"); 
+    document.querySelector("#alle").classList.remove("hide"); 
+    document.querySelector("#indhold_main").classList.add("alle_main"); 
+
+    const skabelonto = document.querySelector("#alle template").content; 
+
+    indhold.forEach(type => {
+        const klonto = skabelonto.cloneNode(true); 
+
+        console.log(type.kategori + type.ikon + type.overskrift); 
+
+        skabelonto.querySelector("img").src = type.ikon; 
+        skabelonto.querySelector("img").alt = type.kategori;
+        skabelonto.querySelector("img").id = type.kategori;
+        skabelonto.querySelector("h3").textContent = type.overskrift; 
+
+        document.querySelector("#liste_alle").appendChild(klonto); 
+    })
+
+    document.querySelectorAll("#alle img").forEach(img => {
+        img.addEventListener("click", () => {
+            location.href = `/indhold.html?id=${img.id}`; 
+        })
     })
 }
