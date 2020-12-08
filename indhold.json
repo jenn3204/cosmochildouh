@@ -9,16 +9,19 @@
         "filer": [{
             "titel": "All Loving Angel",
         "kunstner": "Christopher Loyd", 
-        "url": ""
+        "url": "", 
+        "tid": "16:11"
         }, {
             "titel": "Across the sky",
         "kunstner": "Christopher Loyd",
-        "url": ""
+        "url": "",
+        "tid": "16:00"
 
         }, {
             "titel": "Divine Love",
         "kunstner": "Christopher Loyd",
-        "url": ""
+        "url": "",
+        "tid": "07:55"
         }]
     }, 
     {
@@ -29,17 +32,20 @@
         "beskrivelse": "Meditation er et veldokumenteret redskab til at forøge psykisk og fysisk velvære. Det er for eksempel påvist, at meditation har en afstressende effekt, kan virke angstdæmmende, øge koncentrationsevnen og produktionen af lykkehormonet serotonin, der skaber følelsen af velvære og lykke. Gennem meditationens stilhed lærer barnet at lytte til den dybere intuitive del af sin bevidsthed, som normalt overskygges af den indre mentale støj. Barnet kommer i tættere kontakt med sine egentlige behov og lærer derved sig selv bedre at kende. Det gør barnet bedre i stand til at skille væsentligt fra uvæsentligt og til at navigere mere trygt gennem det hav af informationer og valgmuligheder, som barnet dagligt præsenteres for. Målet er at integrere krop og sjæl, stilhed og aktivitet, det indre og det ydre og dermed skabe ro og balance.",
         "ikon": "img/ikoner/meditation.png", 
         "filer": [{
-        "titel": "Introduktion til meditation - forælder",
+        "titel": "Introduktion til meditation",
         "kunstner": "Jesper Westmark", 
-        "url": ""
+        "url": "",
+        "tid": "04:15"
         }, {
             "titel": "Rejsen gennem kroppen",
             "kunstner": "Mette Junker",
-            "url": ""
+            "url": "", 
+            "tid": "07:25"
         }, {
             "titel": "Den violette flamme",
             "kunstner": "Viktoria Junker",
-            "url": ""
+            "url": "",
+            "tid": "04:29"
         }]  
     }, 
     {
@@ -50,17 +56,20 @@
         "beskrivelse": "Akupressur har fælles oprindelse med akupunktur, da begge behandlingsformer er baseret på kroppens meridianpunkter og stammer fra Østen. Men i modsætning til akupunktur, så anvendes der ingen nåle, men derimod et let tryk med fingrene på bestemte punkter i kroppens meridianer, som har til formål at forebygge eller lindre forskellige symptomer af både fysisk og psykisk karakter. Punkterne kan masseres så tit du og dit barn har lyst. Du kan vælge at massere punkterne på dit barn, eller lade barnet gøre det selv, begge dele er fint.",
         "ikon": "img/ikoner/akupressur.png", 
         "filer": [{
-            "titel": "Introduktion til akupressur - forælder",
+            "titel": "Introduktion til akupressur",
             "kunstner": "Katrine Birk", 
-            "url": ""
+            "url": "", 
+            "tid": "01:19"
         }, {
             "titel": "Solar Plexus",
             "kunstner": "Katrine Birk",
-            "url": ""
+            "url": "", 
+            "tid": "03:16"
         }, {
             "titel": "Ørenus",
             "kunstner": "Katrine Birk",
-            "url": ""
+            "url": "",
+            "tid": "02:52"
         }] 
         
     }

@@ -37,6 +37,14 @@ h4 {
   font-weight: bold;
 }
 
+h5 {
+  font-family: var(--brødtekst);
+  font-size: 1.1rem;
+  color: white;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
 p {
   font-family: var(--brødtekst);
 }
@@ -72,6 +80,15 @@ header nav {
 
 #hjem_knap {
   background-image: url(img/ikoner/hjem.png);
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  margin: 1vw;
+  cursor: pointer;
+}
+
+#om_knap {
+  background-image: url(img/ikoner/om.png);
   width: 40px;
   height: 40px;
   background-size: cover;
@@ -184,7 +201,8 @@ button:hover {
 
 /** forside **/
 
-#forside_main {
+#forside_main,
+#om_main {
   background-image: url(img/baggrund.png);
   background-size: cover;
   height: 100vh;
@@ -328,6 +346,7 @@ button:hover {
   border-radius: 10px;
   border: 1px solid black;
   position: relative;
+  height: 55px;
 }
 
 .indhold_box:hover {
@@ -343,17 +362,81 @@ button:hover {
   cursor: pointer;
   position: absolute;
   right: 10px;
-  top: 15px;
+  top: 10px;
 }
+
+.download {
+  background-image: url(img/ikoner/download.png);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 35px;
+}
+
+.tid {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+}
+
+/** pop up **/
 
 #pop_up {
   position: fixed;
-  top: 50px;
-  background-color: red;
+  top: 0px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff50;
 }
+
+#popup_article {
+  width: 90vw;
+  height: 70vh;
+  margin-top: 50px;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid black;
+  padding-top: 100px;
+  position: relative;
+}
+
+#luk_popup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  color: white;
+  font-family: var(--overskrift);
+  font-size: 2rem;
+}
+
+/** alle siden **/
 
 #liste_alle {
   display: flex;
+  width: 800px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/** om **/
+
+#om_cc {
+  width: 90vw;
+  margin: 60px auto;
+}
+
+.om {
+  margin-bottom: 10px;
+}
+
+#stort_logo {
+  width: 90vw;
 }
 
 /** animationer **/
@@ -429,5 +512,21 @@ button:hover {
   }
   100% {
     opacity: 100%;
+  }
+}
+
+/** media queries **/
+
+@media only screen and (min-width: 600px) {
+  #om_cc {
+    width: 600px;
+  }
+
+  #stort_logo {
+    width: 600px;
+  }
+
+  #popup_article {
+    width: 600px;
   }
 }

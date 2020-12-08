@@ -79,6 +79,10 @@ function start() {
             document.querySelector("#logud_knap").addEventListener("click", logUd); 
         }
 
+        if (document.querySelector("#om_knap")) {
+            document.querySelector("#om_knap").addEventListener("click", visOm); 
+        }
+
         // index.html / log ud
 
         if (sessionStorage.logind == "no") {
@@ -104,6 +108,14 @@ function start() {
             
             
             startIndhold(); 
+        }
+
+
+        // Om
+
+        if (document.querySelector("#om_main")) {
+           
+            startOm();
         }
 
        
@@ -188,6 +200,7 @@ function visTbTxt(jsonData) {
 
 function visValg() {
     
+    document.querySelector("#august").classList.add("hide"); 
     document.querySelector("#talebobbel").classList.add("hide");
     document.querySelector("#valg_section").classList.remove("hide"); 
         document.querySelector("#valg_section").classList.add("fadein"); 
@@ -254,6 +267,7 @@ function indholdHentet(data) {
                 klon.querySelector("#titel").textContent = fil.titel; 
                 klon.querySelector("#kunstner").textContent = fil.kunstner; 
                 klon.querySelector(".play_knap").setAttribute("id", `${fil.titel}`); 
+                klon.querySelector(".tid").textContent = fil.tid;
 
                 liste.appendChild(klon); 
             })
@@ -261,7 +275,7 @@ function indholdHentet(data) {
             document.querySelectorAll(".play_knap").forEach(knap => {
                 knap.addEventListener("click", (e) => {
                     console.log(knap.id);
-                    visPopup(knap.id, ind.ikon);  
+                    visPopup(knap.id, ind.ikon, ind.kategori);  
                 })
             })
             
@@ -287,7 +301,7 @@ function visInfo(data) {
     })
 }
 
-function visPopup(knap, ikon) {
+function visPopup(knap, ikon, kategori) {
     console.log("er den her?" + indhold); 
     document.querySelector("#pop_up").classList.remove("hide"); 
 
@@ -301,6 +315,8 @@ function visPopup(knap, ikon) {
                 document.querySelector("#pop_up img").src = ikon; 
                 document.querySelector("#pop_up h3").textContent = fil.titel; 
                 document.querySelector("#pop_up p").textContent = fil.kunstner; 
+
+                document.querySelector("#popup_article").classList.add(`${kategori}` + "_body"); 
 
             }
         })
@@ -323,10 +339,10 @@ function visAlle() {
 
         console.log(type.kategori + type.ikon + type.overskrift); 
 
-        skabelonto.querySelector("img").src = type.ikon; 
-        skabelonto.querySelector("img").alt = type.kategori;
-        skabelonto.querySelector("img").id = type.kategori;
-        skabelonto.querySelector("h3").textContent = type.overskrift; 
+        klonto.querySelector("img").src = type.ikon; 
+        klonto.querySelector("img").alt = type.kategori;
+        klonto.querySelector("img").id = type.kategori;
+        klonto.querySelector("h3").textContent = type.overskrift; 
 
         document.querySelector("#liste_alle").appendChild(klonto); 
     })
@@ -336,4 +352,24 @@ function visAlle() {
             location.href = `/indhold.html?id=${img.id}`; 
         })
     })
+}
+
+function visOm() {
+    location.href = "/om.html"; 
+}
+
+function startOm() {
+
+    hentData(txtData, visOmIndhold); 
+}
+
+function visOmIndhold(data) {
+    txt = data; 
+
+    document.querySelector("#stort_logo").classList.remove("hide"); 
+    document.querySelector("#om_cc").classList.add("fadein"); 
+    document.querySelector("#om1").textContent = txt[5].beskrivelse1; 
+    document.querySelector("#om2").textContent = txt[5].beskrivelse2; 
+    document.querySelector("#om3").textContent = txt[5].beskrivelse3; 
+
 }
