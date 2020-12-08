@@ -4,9 +4,15 @@ showLoader();
 window.addEventListener("DOMContentLoaded", start); 
 
 let brugere = []; 
+let indhold = []; 
+let txt = []; 
 
 let brugereData = "brugere.json"; 
 let txtData = "txt.json"; 
+let indholdData = "indhold.json"; 
+
+const urlParams = new URLSearchParams(window.location.search);
+const situation = urlParams.get("id");
 
 function showLoader() {
 
@@ -83,6 +89,19 @@ function start() {
                 window.open("https://apps.apple.com/dk/app/cosmo-child/id1481464627?l=da"); 
             })
         }
+
+        //indhold.html 
+
+        
+
+        if (document.querySelector("#indhold_main")) {
+
+            
+            
+            startIndhold(); 
+        }
+
+       
     
 }
 
@@ -169,6 +188,8 @@ function visValg() {
         document.querySelector("#valg_section").classList.add("fadein"); 
     document.querySelector("#valg_section").classList.add("valg_section"); 
 
+    clickValg();
+
     
     
 }
@@ -177,4 +198,65 @@ function logUd() {
     location.href = "/index.html"; 
     sessionStorage.setItem("logind", "no");
     sessionStorage.setItem("harsetintro", "no");    
+}
+
+function clickValg() {
+    document.querySelectorAll("#valg_section button").forEach(button => {
+        button.addEventListener("click", () => {
+            visIndhold(button.value); 
+        });
+    })
+}
+
+function visIndhold(value) {
+    location.href = `indhold.html?id=${value}`; 
+}
+
+function startIndhold() {
+    hentData(indholdData, indholdHentet);  
+}
+
+function indholdHentet(data) {
+    indhold = data; 
+
+    indhold.forEach(ind => {
+        if (ind.situation == situation || ind.situation2 == situation) {
+            console.log(ind); 
+
+            document.querySelector("#article2 .overskrift h2").textContent = ind.kategori[0].toUpperCase() + ind.kategori.slice(1); 
+            document.querySelector("#article2 .overskrift img").src = ind.ikon; 
+            document.querySelector("#article2 p").textContent = ind.beskrivelse; 
+
+            document.querySelector("#article3 .overskrift h2").textContent = ind.overskrift; 
+            document.querySelector("#article3 .overskrift img").src = ind.ikon; 
+
+            document.querySelector("#titel1").textContent = ind.titel1; 
+            document.querySelector("#kunstner1").textContent = ind.kunstner1; 
+
+            document.querySelector("#titel2").textContent = ind.titel2; 
+            document.querySelector("#kunstner2").textContent = ind.kunstner2; 
+
+            document.querySelector("#titel3").textContent = ind.titel3; 
+            document.querySelector("#kunstner3").textContent = ind.kunstner3; 
+
+            
+        }
+    })
+
+    hentInfo();
+}
+
+function hentInfo() {
+    hentData(txtData, visInfo);
+}
+
+function visInfo(data) {
+    txt = data; 
+
+    txt.forEach(t => {
+        if (t.situation == situation) {
+            document.querySelector("#article1 h2").textContent = t.overskrift; 
+            document.querySelector("#article1 p").textContent = t.brødtekst; 
+        }
+    })
 }

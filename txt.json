@@ -1,3 +1,26 @@
 [{
-    "velkommen": "Vi vil guide dig i hvordan du bedst kan hjælpe dit barn, når det skal igennem operation, ved at skabe mest mulig indre ro hos dig og dit barn. Vi ved det kan være en stressende situation for både dig og dit barn, derfor vil vi forsøge at hjælpe jer bedst muligt, med at få så positiv en oplevelse under indlæggelsen som muligt. Vi anbefaler du anvender alle steps du guides igennem, for at opnå størst effekt."
-}]
+    "velkommen": "Vi vil guide dig i hvordan du bedst kan hjælpe dit barn, når det skal igennem operation, ved at skabe mest mulig indre ro hos dig og dit barn. Vi ved det kan være en stressende situation for både dig og dit barn, derfor vil vi forsøge at hjælpe jer bedst muligt, med at få så positiv en oplevelse under indlæggelsen som muligt. Vi anbefaler du anvender alle steps du guides igennem, for at opnå størst effekt.",
+    "velkommen2": "Om lidt kan du vælge hvilken situation du og dit barn er i og vi vil guide dig til et værktøj der kan hjælpe jer i jeres situation. Du kan også vælge “alle værktøjer” og så vil du selv kunne vælge i blandt alle værktøjer, "
+}, 
+{
+    "situation": "inden", 
+    "overskrift": "Inden operation",
+    "brødtekst": "Ventetiden kan være svær. Der er mange følelser og tanker. Ved at gøre tiden mest mulig hyggelig og ved skabe indre ro, kan du hjælpe dit barn (og dig selv) med at få den bedst mulige oplevelse. Roen kan du skabe ved at sætte noget stille musik på, mens du er sammen med dit barn. Vigtigst af alt er dit nærvær og omsorg for dit barn. I kan stadig snakke og hygge jer sammen mens musikken spiller i baggrunden."
+}, 
+{
+    "situation": "under", 
+    "overskrift": "Under operation",
+    "brødtekst": "Under operationen vil dit barn være lagt til at sove, men forskningen viser at barnet underbevidst stadig hører hvad der foregår. Du kan bede lægerne om at sætte beroligende musik på, som vil hjælpe barnet med at være i ro under søvnen."
+}, 
+{
+    "situation": "efter", 
+    "overskrift": "Efter operation",
+    "brødtekst": ""
+}, 
+{
+    "situation": "hjemme", 
+    "overskrift": "Derhjemme",
+    "brødtekst": ""
+}
+
+]
