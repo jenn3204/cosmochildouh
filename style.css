@@ -41,6 +41,12 @@ h2 {
   margin-bottom: 5px;
 }
 
+h3 {
+  font-family: var(--overskrift);
+  font-size: 20px;
+  font-weight: bold;
+}
+
 h4 {
   font-family: var(--brødtekst);
   font-weight: bold;
@@ -78,22 +84,24 @@ p {
 /** header **/
 
 header {
-  height: 50px;
+  height: 70px;
   width: 100vw;
   position: fixed;
-  background-color: none;
   z-index: 100000;
+  bottom: 0;
+  border-top: 1px solid white;
 }
 
 header nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  padding: 0 5vw;
 }
 
 #hjem_knap {
   background-image: url(img/ikoner/hjem.png);
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background-size: cover;
   margin: 1vw;
   cursor: pointer;
@@ -101,8 +109,8 @@ header nav {
 
 #om_knap {
   background-image: url(img/ikoner/om.png);
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background-size: cover;
   margin: 1vw;
   cursor: pointer;
@@ -110,8 +118,8 @@ header nav {
 
 #logud_knap {
   background-image: url(img/ikoner/logud.png);
-  width: 35px;
-  height: 40px;
+  width: 45px;
+  height: 50px;
   background-size: cover;
   margin: 1vw;
   cursor: pointer;
@@ -121,17 +129,17 @@ header nav {
 #landing_main {
   background-image: url(img/startsidebg_lille.png);
   background-size: cover;
+  background-position: 10%;
   height: 100vh;
   width: 100vw;
   position: absolute;
-  bottom: 0;
+  top: 0;
 }
 
 #logind_section {
   background-color: var(--hvid);
-  width: 280px;
+  width: 80vw;
   padding: 40px 0 10px;
-  /* margin: 100px auto; */
   border-radius: 5px;
   border: none;
   z-index: 2;
@@ -147,20 +155,22 @@ header nav {
 #logind_form {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 65vw;
   margin: 0 auto;
 }
 
 label {
   font-family: var(--overskrift);
+  font-size: 18px;
 }
 
 input {
   border: 2px solid var(--lysblaa);
   border-radius: 5px;
-  height: 25px;
+  height: 30px;
   margin-bottom: 10px;
   font-family: var(--brødtekst);
+  font-size: 18px;
 }
 
 input:focus {
@@ -193,22 +203,25 @@ button:hover {
 }
 
 #logo_container {
-  width: 230px;
+  /* width: 230px; */
+  width: 65vw;
   margin: 10px auto 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 #ouh_logo {
   background-image: url(img/ikoner/ouh_logo.png);
   background-size: cover;
   height: 100px;
-  width: 100px;
+  width: 115px;
 }
 
 #cc_logo {
   background-image: url(img/ikoner/cc_logo.png);
   background-size: cover;
   height: 100px;
-  width: 130px;
+  width: 115px;
 }
 
 #logud_section {
@@ -267,36 +280,47 @@ button:hover {
   height: 100vh;
   width: 100vw;
   position: absolute;
-  bottom: 0;
-  overflow: scroll;
+  top: 0;
+}
+
+/* #talebobbel {
+  background-size: cover;
+ 
+  margin: 15vh auto 0;
+  position: relative;
+  color: var(--meditation_brun);
+} */
+
+#talebobbel_section {
+  display: flex;
+  justify-content: center;
 }
 
 #talebobbel {
-  background-image: url(img/talebobbel_ned.png);
-  background-size: cover;
   width: 100vw;
-  max-width: 450px;
-  height: 430px;
-  margin: 8vh auto 0;
-  position: relative;
-  color: var(--meditation_brun);
+  position: absolute;
+  top: 10vh;
+  /* left: 5vw; */
 }
 
 #august_forside {
   height: 250px;
   position: absolute;
   left: 5px;
-  bottom: 0px;
+  /* bottom: 100px; */
+  top: 60vh;
 }
 
 #tb_indhold {
-  width: 330px;
+  /* width: 330px; */
   height: 300px;
   position: absolute;
-  top: 70px;
-  left: 60px;
+  top: 17vh;
+  /* left: 15vw; */
+  width: 80vw;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 #tb_indhold h2 {
@@ -305,9 +329,9 @@ button:hover {
 }
 
 #videre_knap {
-  position: absolute;
-  bottom: 20px;
-  left: 110px;
+  /* position: absolute;
+  bottom: 20px; */
+  margin-top: 20px;
 }
 
 .valg_section {
@@ -317,9 +341,11 @@ button:hover {
 }
 
 #valg_section button {
-  width: 200px;
-  height: 50px;
+  width: 300px;
+  height: 70px;
   margin: 10px auto;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /* #august {
@@ -354,11 +380,15 @@ button:hover {
   background-color: var(--akupressur_graa);
 }
 
+.alle_body {
+  background-color: var(--lysblaa);
+}
+
 .musik_main {
   background-image: url(img/musik_baggrund.png);
   background-size: cover;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .meditation_main {
@@ -377,7 +407,7 @@ button:hover {
   background-image: url(img/bg_lilla.png);
   background-size: cover;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 #indhold_main {
@@ -504,9 +534,29 @@ button:hover {
 
 #liste_alle {
   display: flex;
-  width: 800px;
+  flex-wrap: wrap;
+  width: 90vw;
   justify-content: center;
-  margin: 0 auto;
+  position: absolute;
+  top: 15vh;
+  left: 5vw;
+}
+
+.kategori {
+  width: 150px;
+  margin: 20px;
+  flex-basis: 150px;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.kategori h3 {
+  width: 150px;
+  text-align: center;
+}
+
+.kategori:hover {
+  transform: scale(1.02);
 }
 
 /** om **/
@@ -690,7 +740,53 @@ button:hover {
 
 /** media queries **/
 
+@media only screen and (min-width: 501px) {
+  #logind_section {
+    max-width: 280px;
+  }
+
+  #logind_form {
+    max-width: 200px;
+  }
+
+  #logo_container {
+    max-width: 230px;
+  }
+
+  #talebobbel {
+    max-width: 480px;
+    /* left: 50px; */
+  }
+
+  #tb_indhold {
+    max-width: 360px;
+    /* left: 100px; */
+  }
+}
+
 @media only screen and (min-width: 600px) {
+  header {
+    top: 0;
+    border-top: none;
+    height: 50px;
+  }
+
+  header nav {
+    justify-content: flex-end;
+    padding: 10px;
+  }
+
+  #hjem_knap,
+  #om_knap {
+    height: 40px;
+    width: 40px;
+  }
+
+  #logud_knap {
+    height: 40px;
+    width: 35px;
+  }
+
   #om_cc {
     width: 600px;
   }
@@ -705,6 +801,7 @@ button:hover {
 
   #august_forside {
     height: 300px;
+    top: 45vh;
   }
 }
 
@@ -713,16 +810,28 @@ button:hover {
     height: 350px;
     left: 150px;
   }
+
+  #liste_alle {
+    width: 70vw;
+    left: 15vw;
+  }
 }
 
 @media only screen and (orientation: landscape) {
-  #talebobbel {
+  /* #talebobbel {
     background-image: url(img/talebobbel_side.png);
     max-width: 500px;
+  } */
+
+  #talebobbel {
+    max-width: 480px;
+    /* left: 300px; */
   }
 
   #tb_indhold {
-    left: 90px;
+    /* left: 90px; */
+    max-width: 350px;
+    /* left: 360px; */
   }
 
   #article1,
