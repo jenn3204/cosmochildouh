@@ -2,6 +2,7 @@
     {
         "kategori": "musik",
         "overskrift": "Musik",
+        "type": "Musiknumre",
         "situation": "inden",
         "situation2": "under",
         "beskrivelse": "Flere studier peger på at musik kan øge udskillelsen af endorfiner i hjernen og dermed fremkalde glæde, afslapning eller endda reducere stress og angst. Musik aktiverer begge sider af hjernen og skaber nye forbindelser mellem dem, det gælder både for voksne og børn. Som oftest hører vi musik for at stimulere følelserne i forskellige sammenhænge. Musikken er specielt udviklet til at stimulere barnet til at finde indre ro, glæde og mærke en afslapning i kroppen.",
@@ -27,6 +28,7 @@
     {
         "kategori": "meditation",
         "overskrift": "Drømmerejser",
+        "type": "Meditationer",
         "situation": "hjemme",
         "situation2": "hjemme",
         "beskrivelse": "Meditation er et veldokumenteret redskab til at forøge psykisk og fysisk velvære. Det er for eksempel påvist, at meditation har en afstressende effekt, kan virke angstdæmmende, øge koncentrationsevnen og produktionen af lykkehormonet serotonin, der skaber følelsen af velvære og lykke. Gennem meditationens stilhed lærer barnet at lytte til den dybere intuitive del af sin bevidsthed, som normalt overskygges af den indre mentale støj. Barnet kommer i tættere kontakt med sine egentlige behov og lærer derved sig selv bedre at kende. Det gør barnet bedre i stand til at skille væsentligt fra uvæsentligt og til at navigere mere trygt gennem det hav af informationer og valgmuligheder, som barnet dagligt præsenteres for. Målet er at integrere krop og sjæl, stilhed og aktivitet, det indre og det ydre og dermed skabe ro og balance.",
@@ -51,6 +53,7 @@
     {
         "kategori": "akupressur",
         "overskrift": "Tryk og ro",
+        "type": "Øvelser",
         "situation": "efter",
         "situation2": "efter",
         "beskrivelse": "Akupressur har fælles oprindelse med akupunktur, da begge behandlingsformer er baseret på kroppens meridianpunkter og stammer fra Østen. Men i modsætning til akupunktur, så anvendes der ingen nåle, men derimod et let tryk med fingrene på bestemte punkter i kroppens meridianer, som har til formål at forebygge eller lindre forskellige symptomer af både fysisk og psykisk karakter. Punkterne kan masseres så tit du og dit barn har lyst. Du kan vælge at massere punkterne på dit barn, eller lade barnet gøre det selv, begge dele er fint.",

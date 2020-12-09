@@ -34,6 +34,9 @@ function start() {
 
         if (document.querySelector("#logind_knap")) {
 
+            document.querySelector("#logind_section").classList.remove("hide");
+            document.querySelector("#logind_section").classList.add("fadeinup"); 
+
             if (sessionStorage.logind == "yes") {
                 location.href = "/forside.html"; 
             }
@@ -70,8 +73,11 @@ function start() {
         if (document.querySelector("#tb_tekst")) {
             forsideStart(); 
             hentData(txtData, visTbTxt); 
+
             document.querySelector("#talebobbel").classList.add("zoomind"); 
             document.querySelector("#tb_indhold").classList.add("fadein_slow"); 
+
+            document.querySelector("#august_forside").classList.add("fadeinx"); 
             
         }
 
@@ -88,6 +94,7 @@ function start() {
         if (sessionStorage.logind == "no") {
             document.querySelector("#logind_section").classList.add("hide"); 
             document.querySelector("#logud_section").classList.remove("hide");  
+            document.querySelector("#logud_section").classList.add("fadeinup");
 
             document.querySelector("#logindigen_knap").addEventListener("click", () => {
                 document.querySelector("#logind_section").classList.remove("hide"); 
@@ -105,7 +112,7 @@ function start() {
 
         if (document.querySelector("#indhold_main")) {
 
-            
+            document.querySelector("#indhold_container").classList.add("fadein"); 
             
             startIndhold(); 
         }
@@ -187,10 +194,23 @@ function visTbTxt(jsonData) {
     console.log(jsonData); 
 
     document.querySelector("#videre_knap").addEventListener("click", () => {
-        document.querySelector("#talebobbel").classList.add("zoomud");
-        document.querySelector("#talebobbel").addEventListener("animationend", () => {
-            document.querySelector("#talebobbel").classList.add("hide");
-            visValg(); 
+        document.querySelector("#tb_tekst").textContent = jsonData[0].velkommen2; 
+
+        document.querySelector("#videre_knap").addEventListener("click", () => {
+            document.querySelector("#talebobbel").classList.add("zoomud");
+            document.querySelector("#august_forside").classList.add("fadeoutx")
+
+            document.querySelector("#august_forside").addEventListener("animationend", () => {
+                document.querySelector("#august_forside").classList.add("hide")
+            })
+            
+            document.querySelector("#talebobbel").addEventListener("animationend", () => {
+                document.querySelector("#talebobbel").classList.add("hide");
+                
+                visValg(); 
+        })
+
+       
             
         })
         
@@ -200,15 +220,14 @@ function visTbTxt(jsonData) {
 
 function visValg() {
     
-    document.querySelector("#august").classList.add("hide"); 
+    document.querySelector("#august_forside").classList.add("hide"); 
+
     document.querySelector("#talebobbel").classList.add("hide");
     document.querySelector("#valg_section").classList.remove("hide"); 
         document.querySelector("#valg_section").classList.add("fadein"); 
     document.querySelector("#valg_section").classList.add("valg_section"); 
 
     clickValg();
-
-    
     
 }
 
@@ -231,7 +250,16 @@ function visIndhold(value) {
 }
 
 function startIndhold() {
-        hentData(indholdData, indholdHentet);  
+
+    let data = sessionStorage.getItem("logind")
+    console.log(data); 
+    if (sessionStorage.logind == "yes") {
+console.log("yesyes")
+hentData(indholdData, indholdHentet);  
+} else {
+location.href = "/index.html"
+}
+        
 }
 
 function indholdHentet(data) {
@@ -258,7 +286,7 @@ function indholdHentet(data) {
             document.querySelector("#article2 .overskrift img").src = ind.ikon; 
             document.querySelector("#article2 p").textContent = ind.beskrivelse; 
 
-            document.querySelector("#article3 .overskrift h2").textContent = ind.overskrift; 
+            document.querySelector("#article3 .overskrift h2").textContent = ind.type; 
             document.querySelector("#article3 .overskrift img").src = ind.ikon; 
 
             ind.filer.forEach(fil => {
@@ -295,7 +323,7 @@ function visInfo(data) {
 
     txt.forEach(t => {
         if (t.situation == param) {
-            document.querySelector("#article1 h2").textContent = t.overskrift; 
+            document.querySelector("#article1 h1").textContent = t.overskrift; 
             document.querySelector("#article1 p").textContent = t.brødtekst; 
         }
     })
@@ -360,7 +388,13 @@ function visOm() {
 
 function startOm() {
 
-    hentData(txtData, visOmIndhold); 
+    if (sessionStorage.logind == "yes") {
+        hentData(txtData, visOmIndhold); 
+    } else {
+        location.href = "/index.html"
+    }
+
+    
 }
 
 function visOmIndhold(data) {
