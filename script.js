@@ -41,7 +41,7 @@ function start() {
             document.querySelector("#logind_section").classList.add("fadeinup"); 
 
             if (sessionStorage.logind == "yes") {
-                location.href = "/cosmochildouh/forside.html"; 
+                location.href = "forside.html"; 
             }
 
             document.querySelector("#kodeord_input").addEventListener("keyup", function(event) {
@@ -62,7 +62,7 @@ function start() {
         if (document.querySelector("#hjem_knap")) {
             document.querySelector("#hjem_knap").addEventListener("click", () => {
                 sessionStorage.setItem("harsetintro", "yes"); 
-                location.href = "/cosmochildouh/forside.html"; 
+                location.href = "forside.html"; 
             })
         }
 
@@ -165,9 +165,9 @@ function checkScreensize() {
 
     if (document.querySelector("#talebobbel")) {
         if (window.innerWidth > "700") {
-            document.querySelector("#talebobbel").src = "/img/talebobbel_side.png"; 
+            document.querySelector("#talebobbel").src = "img/talebobbel_side.png"; 
         } else if (window.innerWidth < "700") {
-            document.querySelector("#talebobbel").src = "/img/talebobbel_ned.png"; 
+            document.querySelector("#talebobbel").src = "img/talebobbel_ned.png"; 
         }
     }
 }
@@ -184,7 +184,7 @@ function tjekBrugere(jsonData) {
     brugere.forEach(bruger => {
         if (bruger.brugernavn == brugerValue && bruger.kodeord == kodeValue) {
             console.log("du er logget ind"); 
-            location.href = "/cosmochildouh/forside.html"; 
+            location.href = "forside.html"; 
             sessionStorage.setItem("logind", "yes");
         } else {
             console.log("du er ikke logget ind"); 
@@ -220,7 +220,7 @@ function forsideStart() {
     if (sessionStorage.logind == "yes") {
 console.log("yesyes")
 } else {
-location.href = "/cosmochildouh/index.html"
+location.href = "index.html"
 }
 }
 
@@ -270,7 +270,7 @@ function visValg() {
 }
 
 function logUd() {
-    location.href = "/cosmochildouh/index.html"; 
+    location.href = "index.html"; 
     sessionStorage.setItem("logind", "no");
     sessionStorage.setItem("harsetintro", "no");    
 }
@@ -284,7 +284,7 @@ function clickValg() {
 }
 
 function visIndhold(value) {
-    location.href = `/cosmochildouh/indhold.html?id=${value}`; 
+    location.href = `indhold.html?id=${value}`; 
 }
 
 function startIndhold() {
@@ -295,7 +295,7 @@ function startIndhold() {
 console.log("yesyes")
 hentData(indholdData, indholdHentet);  
 } else {
-location.href = "/cosmochildouh/index.html"
+location.href = "index.html"
 }
         
 }
@@ -332,13 +332,13 @@ function indholdHentet(data) {
 
                 klon.querySelector("#titel").textContent = fil.titel; 
                 klon.querySelector("#kunstner").textContent = fil.kunstner; 
-                klon.querySelector(".play_knap").setAttribute("id", `${fil.titel}`); 
+                klon.querySelector(".indhold_box").setAttribute("id", `${fil.titel}`); 
                 klon.querySelector(".tid").textContent = fil.tid;
 
                 liste.appendChild(klon); 
             })
 
-            document.querySelectorAll(".play_knap").forEach(knap => {
+            document.querySelectorAll(".indhold_box").forEach(knap => {
                 knap.addEventListener("click", (e) => {
                     console.log(knap.id);
                     visPopup(knap.id, ind.ikon, ind.kategori);  
@@ -370,6 +370,14 @@ function visInfo(data) {
 function visPopup(knap, ikon, kategori) {
     console.log("er den her?" + indhold); 
     document.querySelector("#pop_up").classList.remove("hide"); 
+    document.querySelector("#pop_up .audio_line").style.width = "0px"; 
+
+    let audioElement = document.createElement("AUDIO"); 
+    audioElement.id = "audio"; 
+    document.querySelector("#popup_article").appendChild(audioElement); 
+    const audio = document.querySelector("#audio"); 
+
+    
 
     indhold.forEach(ind => {
         console.log(ind.filer); 
@@ -381,6 +389,8 @@ function visPopup(knap, ikon, kategori) {
                 document.querySelector("#pop_up img").src = ikon; 
                 document.querySelector("#pop_up h3").textContent = fil.titel; 
                 document.querySelector("#pop_up p").textContent = fil.kunstner; 
+                document.querySelector("#pop_up .audio_full").textContent = fil.tid; 
+                document.querySelector("#audio").src = fil.url; 
 
                 document.querySelector("#popup_article").classList.add(`${kategori}` + "_body"); 
 
@@ -388,8 +398,45 @@ function visPopup(knap, ikon, kategori) {
         })
     })
 
+    
+
+    document.querySelector("#pop_up .audio_knap").classList.add("play_audio"); 
+    document.querySelector("#pop_up .audio_knap").classList.remove("pause_audio"); 
+    document.querySelector("#pop_up .audio_knap").addEventListener("click", () => {
+        document.querySelector("#pop_up .audio_knap").classList.toggle("pause_audio"); 
+        if (audio.duration > 0 && !audio.paused) {
+            audio.pause(); 
+        } else {
+            audio.play(); 
+        }
+        
+        
+    }) 
+
+    audio.addEventListener("timeupdate", () => {
+        let m = parseInt(audio.currentTime % 60); 
+        document.querySelector("#pop_up .audio_current").textContent = "00:0" + m;  
+
+        if (window.innerWidth < "630") {
+            let bredde = audio.currentTime / audio.duration * 80 + "vw"; 
+            document.querySelector("#pop_up .audio_line").style.width = bredde; 
+        } else {
+            let bredde = audio.currentTime / audio.duration * 500 + "px"; 
+            document.querySelector("#pop_up .audio_line").style.width = bredde; 
+        }
+
+        
+    })
+
+
     document.querySelector("#luk_popup").addEventListener("click", () => {
+        // location.reload(); 
+
         document.querySelector("#pop_up").classList.add("hide"); 
+        document.querySelector("#pop_up .audio_line").style.width = "0px"; 
+        audio.currentTime  = 0;  
+        audio.pause(); 
+        
     })
 }
 
@@ -416,13 +463,13 @@ function visAlle() {
 
     document.querySelectorAll("#alle img").forEach(img => {
         img.addEventListener("click", () => {
-            location.href = `/cosmochildouh/indhold.html?id=${img.id}`; 
+            location.href = `indhold.html?id=${img.id}`; 
         })
     })
 }
 
 function visOm() {
-    location.href = "/cosmochildouh/om.html"; 
+    location.href = "om.html"; 
 }
 
 function startOm() {
@@ -430,7 +477,7 @@ function startOm() {
     if (sessionStorage.logind == "yes") {
         hentData(txtData, visOmIndhold); 
     } else {
-        location.href = "/cosmochildouh/index.html"
+        location.href = "index.html"
     }
 
     

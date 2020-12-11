@@ -281,7 +281,7 @@ button:hover {
 
 #forside_main,
 #om_main {
-  background-image: url(img/bg_lilla.png);
+  background-image: url(img/bg_lilla2.png);
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -374,6 +374,14 @@ button:hover {
 
 /** indhold.html **/
 
+#indhold_main p {
+  font-size: 18px;
+}
+
+#indhold_main {
+  color: white;
+}
+
 .musik_body {
   background-color: var(--musik_gron);
 }
@@ -384,6 +392,14 @@ button:hover {
 
 .akupressur_body {
   background-color: var(--akupressur_graa);
+}
+
+.historier_body {
+  background-color: #9f95a5;
+}
+
+.EFT_body {
+  background-color: var(--morkblaa);
 }
 
 .alle_body {
@@ -409,8 +425,20 @@ button:hover {
   width: 100vw;
 }
 
+.historier_main {
+  background-image: url(img/historie_baggrund.png);
+  background-size: cover;
+  width: 100vw;
+}
+
+.EFT_main {
+  background-image: url(img/eft_baggrund.png);
+  background-size: cover;
+  width: 100vw;
+}
+
 .alle_main {
-  background-image: url(img/bg_lilla.png);
+  background-image: url(img/bg_lilla2.png);
   background-size: cover;
   width: 100vw;
   /* height: 100vh; */
@@ -464,16 +492,17 @@ button:hover {
 
 .indhold_box {
   margin: 10px 0;
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 0.2px solid black;
   position: relative;
   height: 55px;
+  cursor: pointer;
 }
 
 .indhold_box:hover {
   transform: scale(1.02);
-  background-color: #ffffff10;
+  background-color: #eeeeee10;
 }
 
 .play_knap {
@@ -518,12 +547,11 @@ button:hover {
 
 #popup_article {
   width: 90vw;
-  height: 70vh;
-  margin-top: 50px;
+  height: 420px;
+  margin-top: 60px;
   text-align: center;
   border-radius: 20px;
-  border: 1px solid black;
-  padding-top: 100px;
+  padding-top: 60px;
   position: relative;
 }
 
@@ -535,6 +563,69 @@ button:hover {
   color: white;
   font-family: var(--overskrift);
   font-size: 2rem;
+  width: 50px;
+  height: 50px;
+}
+
+.play_audio {
+  background-image: url(img/ikoner/playaudio.png);
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  margin: 30px auto;
+}
+
+.audio_knap {
+  cursor: pointer;
+}
+
+.pause_audio {
+  background-image: url(img/ikoner/pauseaudio.png);
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  margin: 30px auto;
+}
+
+.play_audio:hover,
+.pause_audio:hover,
+.download_popup:hover {
+  transform: scale(1.04);
+}
+.audio_times {
+  width: 80vw;
+  max-width: 500px;
+  margin: 5px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.audio_line_container {
+  width: 80vw;
+  height: 3px;
+  max-width: 500px;
+  border: 1px solid black;
+  border-radius: 50px;
+  margin: 5px auto;
+  fill: black;
+  position: relative;
+}
+.audio_line {
+  left: 0;
+  height: 3px;
+  background-color: black;
+  transition: width 1s;
+}
+
+.download_popup {
+  background-image: url(img/ikoner/download.png);
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin: 30px auto;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
 }
 
 /** alle siden **/
@@ -543,16 +634,18 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   width: 90vw;
-  justify-content: space-between;
+  justify-content: center;
   position: absolute;
-  top: 15vh;
+  top: 17vh;
   left: 5vw;
+  padding-bottom: 100px;
 }
 
 .kategori {
   flex-basis: 1;
   flex-grow: 150px;
   cursor: pointer;
+  margin: 10px;
 }
 
 .kategori img {

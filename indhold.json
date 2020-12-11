@@ -10,19 +10,19 @@
         "filer": [{
             "titel": "All Loving Angel",
         "kunstner": "Christopher Loyd", 
-        "url": "", 
-        "tid": "16:11"
+        "url": "https://docs.google.com/uc?export=download&id=11dOkCIJo4HR183t3AXCIbv-P_KUm4YBs", 
+        "tid": "00:09"
         }, {
             "titel": "Across the sky",
         "kunstner": "Christopher Loyd",
-        "url": "",
-        "tid": "16:00"
+        "url": "https://docs.google.com/uc?export=download&id=11dOkCIJo4HR183t3AXCIbv-P_KUm4YBs",
+        "tid": "00:09"
 
         }, {
             "titel": "Divine Love",
         "kunstner": "Christopher Loyd",
-        "url": "",
-        "tid": "07:55"
+        "url": "https://docs.google.com/uc?export=download&id=11dOkCIJo4HR183t3AXCIbv-P_KUm4YBs",
+        "tid": "00:09"
         }]
     }, 
     {
@@ -36,18 +36,18 @@
         "filer": [{
         "titel": "Introduktion til meditation",
         "kunstner": "Jesper Westmark", 
-        "url": "",
-        "tid": "04:15"
+        "url": "https://docs.google.com/uc?export=download&id=1kBn1Kh3iljIr5BfbSYkFbQ7OipZsiyya",
+        "tid": "00:09"
         }, {
             "titel": "Rejsen gennem kroppen",
             "kunstner": "Mette Junker",
-            "url": "", 
-            "tid": "07:25"
+            "url": "https://docs.google.com/uc?export=download&id=1kBn1Kh3iljIr5BfbSYkFbQ7OipZsiyya", 
+            "tid": "00:09"
         }, {
             "titel": "Den violette flamme",
             "kunstner": "Viktoria Junker",
-            "url": "",
-            "tid": "04:29"
+            "url": "https://docs.google.com/uc?export=download&id=1kBn1Kh3iljIr5BfbSYkFbQ7OipZsiyya",
+            "tid": "00:09"
         }]  
     }, 
     {
@@ -61,18 +61,60 @@
         "filer": [{
             "titel": "Introduktion til akupressur",
             "kunstner": "Katrine Birk", 
-            "url": "", 
-            "tid": "01:19"
+            "url": "https://docs.google.com/uc?export=download&id=1OvRJHS_4VVPSd4oOhbxxt2l6BwvWnjhb", 
+            "tid": "00:11"
         }, {
             "titel": "Solar Plexus",
             "kunstner": "Katrine Birk",
-            "url": "", 
-            "tid": "03:16"
+            "url": "https://docs.google.com/uc?export=download&id=1OvRJHS_4VVPSd4oOhbxxt2l6BwvWnjhb", 
+            "tid": "00:11"
         }, {
             "titel": "Ørenus",
             "kunstner": "Katrine Birk",
-            "url": "",
-            "tid": "02:52"
+            "url": "https://docs.google.com/uc?export=download&id=1OvRJHS_4VVPSd4oOhbxxt2l6BwvWnjhb",
+            "tid": "00:11"
+        }] 
+        
+    }, 
+    {
+        "kategori": "historier",
+        "overskrift": "Historier",
+        "type": "Historier",
+        "situation": "",
+        "situation2": "",
+        "beskrivelse": "De små historier om kærlighed og positiv energi, er skønt for både dig og dit barns sind og lærer dit barn at gå ind i sig selv og mærke efter i krop, sind og hjerte. Historierne giver jer en kærlig og rolig stund sammen, som er uvurderlig i en travl hverdag. For et øjeblik skrues der ned for den strøm af stimuli, som konstant omgiver jer som familie. Vi kan ikke stoppe alle stimuli omkring vores børn, men vi kan lære dem, hvordan de navigerer i dem og hvordan de finder ro, balance og vigtigst af alt livsglæde.",
+        "ikon": "img/ikoner/historier.png", 
+        "filer": [{
+            "titel": "Den dag du blev født",
+            "kunstner": "Katrine Birk", 
+            "url": "https://docs.google.com/uc?export=download&id=1CbwCpdj3Eduvoo2enVJ8Fo3S2_aGdI1M", 
+            "tid": "00:15"
+        }] 
+        
+    }, 
+    {
+        "kategori": "EFT",
+        "overskrift": "Tapping",
+        "type": "Øvelser",
+        "situation": "",
+        "situation2": "",
+        "beskrivelse": "I EFT (Emotionel Freedom Technique) har man taget det bedste fra Østens og Vestens filosofi og smeltet det sammen til et meget enkelt arbejdsredskab, der kaldes for EFT-’tapping’. Punkterne man tapper på, er baseret på de samme energimeridianer som benyttes i traditionel kinesisk ’medicin’, der er kendt fra bl.a. fra akupunktur. Men modsat akupunktur så bruges der ingen nåle, i stedet tapper man med fingerspidserne på bestemte punkter på kroppen, mens man tænker på det ubehag, som man gerne vil have til at gå væk. Det hjælper barnet med at slippe følelser der ikke er rare, eller som kan være begrænsende for barnet at ’bære rundt på’. Det hjælper barnet med i højere grad at kunne nå ind til en dybere ro i både krop og sind.",
+        "ikon": "img/ikoner/eft.png", 
+        "filer": [{
+            "titel": "Introduktion til EFT",
+            "kunstner": "Mette Barfoed", 
+            "url": "https://docs.google.com/uc?export=download&id=1V5CBJwOZ_5IgKA1FydoNi7s6IteJg3Op", 
+            "tid": "00:09"
+        }, {
+            "titel": "EFT sammen med dit barn",
+            "kunstner": "Mette Barfoed",
+            "url": "https://docs.google.com/uc?export=download&id=1V5CBJwOZ_5IgKA1FydoNi7s6IteJg3Op", 
+            "tid": "00:09"
+        }, {
+            "titel": "Energiøvelse - hvad er følelser?",
+            "kunstner": "Mette Barfoed",
+            "url": "https://docs.google.com/uc?export=download&id=1V5CBJwOZ_5IgKA1FydoNi7s6IteJg3Op", 
+            "tid": "00:09"
         }] 
         
     }
