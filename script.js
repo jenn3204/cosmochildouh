@@ -29,7 +29,12 @@ if (pageState == "loading") {
 
 function start() {
 
-
+    document.querySelector("main").classList.add("hide"); 
+    setTimeout(() => {
+        document.querySelector("main").classList.remove("hide"); 
+        document.querySelector("main").classList.add("fadein"); 
+    }, 10);
+    
         checkScreensize();
         showLoader(); 
 
@@ -154,6 +159,10 @@ function checkScreensize() {
                     document.querySelector("header").classList.add("meditation_body"); 
                 } else if (param == "alle") {
                     document.querySelector("header").classList.add("alle_body"); 
+                } else if (param == "EFT") {
+                    document.querySelector("header").classList.add("EFT_body"); 
+                } else if (param == "historier") {
+                    document.querySelector("header").classList.add("historier_body"); 
                 }
             } else {
                 document.querySelector("header").classList.add("alle_body"); 

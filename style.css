@@ -134,6 +134,7 @@ header nav {
   width: 100vw;
   position: absolute;
   top: 0;
+  overflow-x: hidden;
 }
 
 #logind_section {
@@ -229,7 +230,7 @@ button:hover {
 #logud_section {
   background-color: var(--hvid);
   width: 350px;
-  height: 250px;
+  height: 300px;
   padding: 40px 20px 10px;
   border-radius: 5px;
   border: none;
@@ -306,6 +307,7 @@ button:hover {
   width: 100vw;
   position: absolute;
   top: 10vh;
+  display: none;
   /* left: 5vw; */
 }
 
@@ -314,19 +316,22 @@ button:hover {
   position: absolute;
   left: 5px;
   /* bottom: 100px; */
-  top: 60vh;
+  top: 50vh;
 }
 
 #tb_indhold {
   /* width: 330px; */
   height: 300px;
   position: absolute;
-  top: 17vh;
+  top: 10vh;
   /* left: 15vw; */
-  width: 80vw;
+  width: 77vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: var(--hvid);
+  border-radius: 90px;
+  padding: 30px;
 }
 
 #tb_indhold h2 {
@@ -484,6 +489,7 @@ button:hover {
 
 .overskrift img {
   width: 80px;
+  height: 80px;
 }
 
 .overskrift h2 {
@@ -910,6 +916,16 @@ button:hover {
   #liste_alle {
     width: 80vw;
     left: 10vw;
+  }
+
+  #talebobbel {
+    display: block;
+  }
+
+  #tb_indhold {
+    padding: 0;
+    background-color: white;
+    top: 18vh;
   }
 }
 
