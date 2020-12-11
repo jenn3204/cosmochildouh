@@ -201,6 +201,13 @@ button:hover {
   transform: scale(1.05);
 }
 
+#logind_section button:hover,
+#logud_section button:hover,
+#tb_indhold button:hover {
+  background-color: var(--lysblaa);
+  color: var(--hvid);
+}
+
 #advarsel {
   margin-bottom: 15px;
 }
@@ -229,7 +236,7 @@ button:hover {
 
 #logud_section {
   background-color: var(--hvid);
-  width: 350px;
+  width: 320px;
   height: 300px;
   padding: 40px 20px 10px;
   border-radius: 5px;
@@ -316,14 +323,14 @@ button:hover {
   position: absolute;
   left: 5px;
   /* bottom: 100px; */
-  top: 50vh;
+  top: 60vh;
 }
 
 #tb_indhold {
   /* width: 330px; */
-  height: 300px;
+  height: 400px;
   position: absolute;
-  top: 10vh;
+  top: 7vh;
   /* left: 15vw; */
   width: 77vw;
   display: flex;
@@ -869,6 +876,7 @@ button:hover {
 
   #tb_indhold {
     max-width: 360px;
+    height: 320px;
     /* left: 100px; */
   }
 }
@@ -962,5 +970,11 @@ button:hover {
   #article2,
   #article3 {
     max-width: 300px;
+  }
+}
+
+@media only screen and (max-height: 600px) and (max-width: 500px) {
+  #august_forside {
+    display: none;
   }
 }

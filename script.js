@@ -29,6 +29,10 @@ if (pageState == "loading") {
 
 function start() {
 
+    if (location.protocol !== "https:") {
+        location.protocol = "https:";
+      }
+
     document.querySelector("main").classList.add("hide"); 
     setTimeout(() => {
         document.querySelector("main").classList.remove("hide"); 
@@ -248,15 +252,16 @@ function visTbTxt(jsonData) {
             document.querySelector("#august_forside").addEventListener("animationend", () => {
                 document.querySelector("#august_forside").classList.add("hide")
             })
-            
-            document.querySelector("#talebobbel").addEventListener("animationend", () => {
-                document.querySelector("#talebobbel").classList.add("hide");
-                
-                
-                visValg(); 
-        })
 
-       
+            if (window.innerWidth > "600") {
+                document.querySelector("#talebobbel").addEventListener("animationend", () => {
+                    document.querySelector("#talebobbel").classList.add("hide");       
+                    visValg();
+                })
+            } else {
+                visValg(); 
+            }
+            
             
         })
         
@@ -329,7 +334,7 @@ function indholdHentet(data) {
             document.querySelector("#indhold_body").classList.add(`${ind.kategori}` + "_body"); 
             document.querySelector("#indhold_main").classList.add(`${ind.kategori}` + "_main"); 
 
-            document.querySelector("#article2 .overskrift h2").textContent = ind.kategori[0].toUpperCase() + ind.kategori.slice(1); 
+            document.querySelector("#article2 .overskrift h2").textContent = ind.overskrift; 
             document.querySelector("#article2 .overskrift img").src = ind.ikon; 
             document.querySelector("#article2 p").textContent = ind.beskrivelse; 
 
