@@ -1,6 +1,5 @@
 "use strict"; 
 
-showLoader(); 
 window.addEventListener("DOMContentLoaded", start); 
 window.addEventListener("resize", checkScreensize); 
 
@@ -15,34 +14,24 @@ let indholdData = "indhold.json";
 const urlParams = new URLSearchParams(window.location.search);
 const param = urlParams.get("id");
 
-function showLoader() {
-
-    let pageState = document.readyState; 
-if (pageState == "loading") {
-    console.log("HEJ"); 
-    document.querySelector("body").classList.add("hide"); 
-} else {
-    console.log("NEJ"); 
-    document.querySelector("body").classList.remove("hide"); 
-}
-}
-
 function start() {
 
+    // sørger for sikker forbindelse hver gang
     if (location.protocol !== "https:") {
         location.protocol = "https:";
       }
 
+    // laver mere smooth overgange mellem siderne
     document.querySelector("main").classList.add("hide"); 
     setTimeout(() => {
         document.querySelector("main").classList.remove("hide"); 
         document.querySelector("main").classList.add("fadein"); 
     }, 10);
     
+    // kalder check screen size function
         checkScreensize();
-        showLoader(); 
 
-        //index.html
+    //index.html 
 
         if (document.querySelector("#logind_knap")) {
 
@@ -141,14 +130,7 @@ function start() {
     
 }
 
-async function hentData(json, callback) {
-    const response = await fetch(json);
-    let jsonData  = await response.json();
-
-    callback(jsonData); 
-
-}
-
+// function der tjekker hvad størrelse skærmen er for at give headeren den rigtige farve og får at skifte mellem talebobler
 function checkScreensize() {
     if (document.querySelector("header")) {
         if (window.innerWidth > "600") {
@@ -185,6 +167,16 @@ function checkScreensize() {
     }
 }
 
+// async function der henter data 
+async function hentData(json, callback) {
+    const response = await fetch(json);
+    let jsonData  = await response.json();
+
+    callback(jsonData); 
+
+}
+
+// function der håndtere log ind - tjekker validitet (om brugernavn og kode er på listen) og viser advarsel hvis ikke korrekt
 function tjekBrugere(jsonData) {
 
     brugere = jsonData; 
@@ -225,7 +217,7 @@ function tjekBrugere(jsonData) {
 }
 
 
-
+// function der starter forsiden med at tjekke om man er logget ind (med sessionStorage)
 function forsideStart() {
     console.log(sessionStorage); 
     let data = sessionStorage.getItem("logind")
@@ -237,6 +229,7 @@ location.href = "index.html"
 }
 }
 
+// function der styrer introen/taleboblen på forsiden 
 function visTbTxt(jsonData) {
     document.querySelector("#tb_tekst").textContent = jsonData[0].velkommen; 
     console.log(jsonData); 
@@ -269,6 +262,7 @@ function visTbTxt(jsonData) {
 
 }
 
+// function der styrer forsiden med valgmulighederne 
 function visValg() {
     
     document.querySelector("#august_forside").classList.add("hide"); 
@@ -283,12 +277,7 @@ function visValg() {
     
 }
 
-function logUd() {
-    location.href = "index.html"; 
-    sessionStorage.setItem("logind", "no");
-    sessionStorage.setItem("harsetintro", "no");    
-}
-
+// når man klikker på en af valgmulighederne 
 function clickValg() {
     document.querySelectorAll("#valg_section button").forEach(button => {
         button.addEventListener("click", () => {
@@ -297,10 +286,12 @@ function clickValg() {
     })
 }
 
+// når man har klikket på en valgmulighed, sendes man til indhold.html med værdien som URL parameter 
 function visIndhold(value) {
     location.href = `indhold.html?id=${value}`; 
 }
 
+// function der starter indhold.html - henter indholdet hvis man er logget ind ellers redirecter den
 function startIndhold() {
 
     let data = sessionStorage.getItem("logind")
@@ -314,52 +305,100 @@ location.href = "index.html"
         
 }
 
+// det rigtige indhold om værktøjerne fra indhold.json sættes på indhold.html
+// function indholdHentet(data) {
+//     indhold = data; 
+//     const skabelon = document.querySelector("#article3 template").content;
+//     const liste = document.querySelector("#liste"); 
+
+//     if (param == "alle") {
+//         visAlle();
+//     }
+
+//     indhold.forEach(ind => {
+//         if (ind.situation == param || ind.situation2 == param || ind.kategori == param) {
+//             console.log(ind); 
+
+//             if (ind.kategori == param) {
+//                 document.querySelector("#article1").classList.add("hide"); 
+//             }
+
+//             document.querySelector("#indhold_body").classList.add(`${ind.kategori}` + "_body"); 
+//             document.querySelector("#indhold_main").classList.add(`${ind.kategori}` + "_main"); 
+
+//             document.querySelector("#article2 .overskrift h2").textContent = ind.overskrift; 
+//             document.querySelector("#article2 .overskrift img").src = ind.ikon; 
+//             document.querySelector("#article2 p").textContent = ind.beskrivelse; 
+
+//             document.querySelector("#article3 .overskrift h2").textContent = ind.type; 
+//             document.querySelector("#article3 .overskrift img").src = ind.ikon; 
+
+//             ind.filer.forEach(fil => {
+//                 const klon = skabelon.cloneNode(true); 
+
+//                 klon.querySelector("#titel").textContent = fil.titel; 
+//                 klon.querySelector("#kunstner").textContent = fil.kunstner; 
+//                 klon.querySelector(".indhold_box").setAttribute("id", `${fil.titel}`); 
+//                 klon.querySelector(".tid").textContent = fil.tid;
+
+//                 liste.appendChild(klon); 
+//             })
+
+//             document.querySelectorAll(".indhold_box").forEach(knap => {
+//                 knap.addEventListener("click", (e) => {
+//                     console.log(knap.id);
+//                     visPopup(knap.id, ind.ikon, ind.kategori);  
+//                 })
+//             })
+            
+//         }
+//     })
+
+//     hentInfo();
+
+// }
+
 function indholdHentet(data) {
     indhold = data; 
     const skabelon = document.querySelector("#article3 template").content;
     const liste = document.querySelector("#liste"); 
 
+    let korrektIndhold = indhold.filter(ind => ind.situation == param || ind.situation2 == param || ind.kategori == param);
+
     if (param == "alle") {
         visAlle();
     }
+    
+    if (korrektIndhold[0].kategori == param) {
+        document.querySelector("#article1").classList.add("hide"); 
+    }
 
-    indhold.forEach(ind => {
-        if (ind.situation == param || ind.situation2 == param || ind.kategori == param) {
-            console.log(ind); 
+    document.querySelector("#indhold_body").classList.add(`${korrektIndhold[0].kategori}` + "_body"); 
+    document.querySelector("#indhold_main").classList.add(`${korrektIndhold[0].kategori}` + "_main"); 
 
-            if (ind.kategori == param) {
-                document.querySelector("#article1").classList.add("hide"); 
-            }
+    document.querySelector("#article2 .overskrift h2").textContent = korrektIndhold[0].overskrift; 
+    document.querySelector("#article2 .overskrift img").src = korrektIndhold[0].ikon; 
+    document.querySelector("#article2 p").textContent = korrektIndhold[0].beskrivelse; 
 
-            document.querySelector("#indhold_body").classList.add(`${ind.kategori}` + "_body"); 
-            document.querySelector("#indhold_main").classList.add(`${ind.kategori}` + "_main"); 
+    document.querySelector("#article3 .overskrift h2").textContent = korrektIndhold[0].type; 
+    document.querySelector("#article3 .overskrift img").src = korrektIndhold[0].ikon; 
 
-            document.querySelector("#article2 .overskrift h2").textContent = ind.overskrift; 
-            document.querySelector("#article2 .overskrift img").src = ind.ikon; 
-            document.querySelector("#article2 p").textContent = ind.beskrivelse; 
+    korrektIndhold[0].filer.forEach(fil => {
+        const klon = skabelon.cloneNode(true); 
 
-            document.querySelector("#article3 .overskrift h2").textContent = ind.type; 
-            document.querySelector("#article3 .overskrift img").src = ind.ikon; 
+        klon.querySelector("#titel").textContent = fil.titel; 
+        klon.querySelector("#kunstner").textContent = fil.kunstner; 
+        klon.querySelector(".indhold_box").setAttribute("id", `${fil.titel}`); 
+        klon.querySelector(".tid").textContent = fil.tid;
 
-            ind.filer.forEach(fil => {
-                const klon = skabelon.cloneNode(true); 
+        liste.appendChild(klon); 
+    })
 
-                klon.querySelector("#titel").textContent = fil.titel; 
-                klon.querySelector("#kunstner").textContent = fil.kunstner; 
-                klon.querySelector(".indhold_box").setAttribute("id", `${fil.titel}`); 
-                klon.querySelector(".tid").textContent = fil.tid;
-
-                liste.appendChild(klon); 
-            })
-
-            document.querySelectorAll(".indhold_box").forEach(knap => {
-                knap.addEventListener("click", (e) => {
-                    console.log(knap.id);
-                    visPopup(knap.id, ind.ikon, ind.kategori);  
-                })
-            })
-            
-        }
+    document.querySelectorAll(".indhold_box").forEach(knap => {
+        knap.addEventListener("click", (e) => {
+            console.log(knap.id);
+            visPopup(knap.id, korrektIndhold[0].ikon, korrektIndhold[0].kategori);  
+        })
     })
 
     hentInfo();
@@ -370,6 +409,7 @@ function hentInfo() {
     hentData(txtData, visInfo);
 }
 
+// det rigtige info der passer til indholdet insættes efter at være blevet hentet 
 function visInfo(data) {
     txt = data; 
 
@@ -381,6 +421,7 @@ function visInfo(data) {
     })
 }
 
+// function der styrer pop uppen på indhold siden 
 function visPopup(knap, ikon, kategori) {
     console.log("er den her?" + indhold); 
     document.querySelector("#pop_up").classList.remove("hide"); 
@@ -454,6 +495,7 @@ function visPopup(knap, ikon, kategori) {
     })
 }
 
+// function der styrer siden der viser oversigt over alle kategorier af indhold
 function visAlle() {
     document.querySelector("#indhold_container").classList.add("hide"); 
     document.querySelector("#alle").classList.remove("hide"); 
@@ -482,10 +524,12 @@ function visAlle() {
     })
 }
 
+// kalder om siden
 function visOm() {
     location.href = "om.html"; 
 }
 
+// starter om siden 
 function startOm() {
 
     if (sessionStorage.logind == "yes") {
@@ -497,13 +541,24 @@ function startOm() {
     
 }
 
+// viser indholdet til om siden efter det er hentet i hentData
 function visOmIndhold(data) {
     txt = data; 
 
     document.querySelector("#stort_logo").classList.remove("hide"); 
     document.querySelector("#om_cc").classList.add("fadein"); 
-    document.querySelector("#om1").textContent = txt[5].beskrivelse1; 
-    document.querySelector("#om2").textContent = txt[5].beskrivelse2; 
-    document.querySelector("#om3").textContent = txt[5].beskrivelse3; 
 
+    let omTxt = txt.filter(t => t.side == "om"); 
+
+    document.querySelector("#om1").textContent = omTxt[0].beskrivelse1; 
+    document.querySelector("#om2").textContent = omTxt[0].beskrivelse2; 
+    document.querySelector("#om3").textContent = omTxt[0].beskrivelse3; 
+
+}
+
+// log ud af siden 
+function logUd() {
+    location.href = "index.html"; 
+    sessionStorage.setItem("logind", "no");
+    sessionStorage.setItem("harsetintro", "no");    
 }

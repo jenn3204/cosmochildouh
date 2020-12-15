@@ -969,12 +969,24 @@ button:hover {
   #article1,
   #article2,
   #article3 {
-    max-width: 300px;
+    max-width: 320px;
+  }
+
+  #indhold_main p {
+    font-size: 16px;
   }
 }
 
 @media only screen and (max-height: 600px) and (max-width: 500px) {
   #august_forside {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  #article1,
+  #article2,
+  #article3 {
+    max-width: 400px;
   }
 }
